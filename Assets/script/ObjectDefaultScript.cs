@@ -10,25 +10,25 @@ public class ObjectDefaultScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		this.gameObject.transform.position = (new Vector3(player.gameObject.transform.position.x+Random.Range (30.0f, 50.0f),-3.0f,0.0f));
-//		if (this.tag == "POSTER") {
-//			this.gameObject.transform.Translate(new Vector3 (0.0f, 4.0f, 0.0f));
-//			SpriteRenderer sprRndr = GetComponent<SpriteRenderer>();
-//			float rand = Random.Range(0.0f,1.0f);
-//			if(rand<0.5f){
-//				sprRndr.sprite = postersprite1;
-//			}else{
-//				sprRndr.sprite = postersprite2;
-//			}
-//		}
-//
-//		if (this.tag == "VENT") {
-//			this.gameObject.transform.Translate(new Vector3 (0.0f, 4.8f, 48.0f));
-//		}
-//		if (this.tag == "DOOR") {
-//			this.gameObject.transform.Translate(new Vector3 (0.0f, 2.3f, 48.0f));
-//		}
-//
+		Random.seed = (int)Time.deltaTime;
+		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
+		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;
+		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (72.0f, 120.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
+		
+		Vector2 topLeft = new Vector2(newPos.x- halfWidth, newPos.y+halfHeight);
+		Vector2 topRight= new Vector2(newPos.x+ halfWidth , newPos.y-halfHeight);
+		
+		while (Physics2D.OverlapArea (topLeft, topRight)!=null) {
+			newPos.x = newPos.x + Random.Range (1.0f, 10.0f);
+			topLeft = new Vector2(newPos.x- halfWidth , newPos.y+halfHeight);
+			topRight= new Vector2(newPos.x+ halfWidth, newPos.y-halfHeight);
+		} 
+		this.gameObject.transform.position = newPos;
+		if (this.gameObject.GetComponent<PatientScript> () != null) {
+			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
+		}
+
 		if (this.GetComponent<Animator> () != null) {
 			this.GetComponent<Animator> ().speed = 0.3f;
 		}
