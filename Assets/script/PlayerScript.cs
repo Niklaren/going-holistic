@@ -41,13 +41,11 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake(){
-		playerSpeed = 0.03f;
-		playerAcceration = 0.002f;
-		playerDEAcceration = 0.002f;
-		playerTopSpeed = 0.12f;
+		playerSpeed = 0.05f;
+		playerAcceration = 0.005f;
+		playerDEAcceration = 0.0005f;
+		playerTopSpeed = 0.15f;
 		playerTopTopSpeed = 0.2f;
-		PointA =  0.0f;
-		PointB = PosterDistance = 3.0f;
 		Yumpmax = 20.0f;
 		YumpAvailable = true;
 		YumpDoing = false;
@@ -161,7 +159,7 @@ public class PlayerScript : MonoBehaviour {
 	void OnTriggerEnter2D  (Collider2D other ) {
 		if (other.tag == "SLOW") {
 			HitObject = true;
-			playerSpeed *= 0.5f;
+			playerSpeed *= 0.4f;
 
 			audio.clip = AttackSound;
 			audio.Play();
