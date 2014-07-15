@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{245E808B-7CB6-F8C3-238C-925F8955D099}</ProjectGuid>
+	<ProjectGuid>{CCCA7B8A-9FD4-7AEF-50C9-A76993AC2756}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlaneScript.cs" />
      <Compile Include="Assets\script\BackgroundMovement.cs" />
      <Compile Include="Assets\script\CameraScript.cs" />
      <Compile Include="Assets\script\Killed.cs" />
