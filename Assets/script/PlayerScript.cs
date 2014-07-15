@@ -93,7 +93,8 @@ public class PlayerScript : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Q)) {
 			GameObject patient = GameObject.FindGameObjectWithTag("POINT");
-			if(this.my2Dintersect(patient.collider2D.bounds,this.collider2D.bounds)){
+
+			if(this.my2Dintersect(patient.collider2D.bounds,this.collider2D.bounds) && (patient.gameObject.GetComponent<ObjectDefaultScript>().GetInteractable())){
 
 				playerScore += 1.0f;
 				if(playerSpeed < playerTopTopSpeed ){
@@ -105,7 +106,7 @@ public class PlayerScript : MonoBehaviour {
 
 				audio.clip = HealSound;
 				audio.Play();
-				
+				patient.gameObject.GetComponent<ObjectDefaultScript>().SetUnInteractable();
 				patient.gameObject.GetComponent<PatientScript>().CurePatient();
 			}
 		}
@@ -114,7 +115,8 @@ public class PlayerScript : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.E)) {
 			GameObject poster = GameObject.FindGameObjectWithTag("POSTER");
-			if(this.my2Dintersect(poster.collider2D.bounds,this.collider2D.bounds)){
+			if(this.my2Dintersect(poster.collider2D.bounds,this.collider2D.bounds)&& (poster.gameObject.GetComponent<ObjectDefaultScript>().GetInteractable())){
+				poster.gameObject.GetComponent<ObjectDefaultScript>().SetUnInteractable();
 				print("rip");
 				playerSpeed *= 1.3f;
 				HitGoodObject = true;

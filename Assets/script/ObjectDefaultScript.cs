@@ -7,6 +7,7 @@ public class ObjectDefaultScript : MonoBehaviour {
 	public Sprite postersprite1;
 	public Sprite postersprite2;
 
+	private bool interactable = true;
 
 	// Use this for initialization
 	void Start () {
@@ -46,6 +47,9 @@ public class ObjectDefaultScript : MonoBehaviour {
 
 	void OnBecameInvisible() {
 		print ("NPC Out of view");
+
+		SetInteractable ();
+
 		if (this.tag == "POSTER"){
 			SpriteRenderer sprRndr = GetComponent<SpriteRenderer>();
 			float rand = Random.Range(0.0f,1.0f);
@@ -93,4 +97,20 @@ public class ObjectDefaultScript : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other) {
 		print ("collision");
 	}
+
+	public void SetInteractable()
+	{
+		interactable = true;
+	}
+
+	public void SetUnInteractable()
+	{
+		interactable = false;
+	}
+
+	public bool GetInteractable()
+	{
+		return interactable;
+	}
+
 }
