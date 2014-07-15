@@ -10,7 +10,7 @@ public class ObjectDefaultScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Random.seed = (int)Time.deltaTime;
+		Random.seed = (int)Time.time;
 		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
 		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
 		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;

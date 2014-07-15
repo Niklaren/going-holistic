@@ -41,11 +41,11 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake(){
-		playerSpeed = 0.05f;
-		playerAcceration = 0.005f;
-		playerDEAcceration = 0.001f;
-		playerTopSpeed = 0.2f;
-		playerTopTopSpeed = 0.6f;
+		playerSpeed = 0.03f;
+		playerAcceration = 0.002f;
+		playerDEAcceration = 0.002f;
+		playerTopSpeed = 0.12f;
+		playerTopTopSpeed = 0.2f;
 		PointA =  0.0f;
 		PointB = PosterDistance = 3.0f;
 		Yumpmax = 20.0f;
@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Q)) {
 			GameObject patient = GameObject.FindGameObjectWithTag("POINT");
 			if(this.my2Dintersect(patient.collider2D.bounds,this.collider2D.bounds)){
-				HitGoodObject = true;
+
 				playerScore += 1.0f;
 				if(playerSpeed < playerTopTopSpeed ){
 					playerSpeed *= 1.5f;
@@ -132,7 +132,7 @@ public class PlayerScript : MonoBehaviour {
 				if(playerSpeed < playerTopTopSpeed ){
 					playerSpeed *= 1.2f;
 				}
-				playerScore += 1.0f;
+
 			}
 		}
 
@@ -181,32 +181,10 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (other.tag == "POINT") {
-//			HitGoodObject = true;
-//			playerScore += 1.0f;
-//			if(playerSpeed < playerTopTopSpeed ){
-//				playerSpeed *= 1.5f;
-//			}
-//
-//			audio.clip = HealSound;
-//			audio.Play();
-//
-//			other.gameObject.GetComponent<PatientScript>().CurePatient();
-			//Destroy(other.gameObject);
-			//Spawn New POINTS peepz
-			//GameObject obj = Instantiate(Point) as GameObject;
-			
-			//obj.GetComponent<ObjectDefaultScript>().SetPlayer(this.gameObject);
+//			bject);
 		}
 
-//		if (other.tag == "POSTER") {
-//			//Activate timed update.
-//			PointA = this.gameObject.transform.position.x;
-//			if(playerSpeed < playerTopTopSpeed ){
-//				playerSpeed *= 1.2f;
-//			}
-//			playerScore += 1.0f;
-//		}
-		
+//		
 		if (other.tag == "COPS") {
 
 			Vector3 position = this.transform.position;

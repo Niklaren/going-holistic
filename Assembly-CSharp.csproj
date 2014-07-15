@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlaneScript.cs" />
      <Compile Include="Assets\script\BackgroundMovement.cs" />
      <Compile Include="Assets\script\CameraScript.cs" />
      <Compile Include="Assets\script\Killed.cs" />
