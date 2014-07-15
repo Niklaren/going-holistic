@@ -6,6 +6,7 @@ public class Security : MonoBehaviour {
 	public PlayerScript player;
 	public float Position1Offset;
 	public float Position2Offset;
+	public float Position3Offset;
 	public float CustomOffset;
 	public Sprite ElbowDrop;
 	public Sprite JUMPsprite;
@@ -18,7 +19,7 @@ public class Security : MonoBehaviour {
 	public bool Dive;
 	// Use this for initialization
 	void Start () {
-		Xoffset = Position2Offset - CustomOffset;
+		Xoffset = Position3Offset - CustomOffset;
 		Timer = false;
 		TimePassed = 0;
 	}
@@ -77,6 +78,10 @@ public class Security : MonoBehaviour {
 				Xoffset = Position1Offset - CustomOffset;
 			}
 
+			if(Xoffset == Position3Offset - CustomOffset){
+				Xoffset = Position2Offset - CustomOffset;
+			}
+
 
 		}
 
@@ -84,11 +89,15 @@ public class Security : MonoBehaviour {
 			//move forward
 
 
+			if(Xoffset == Position2Offset - CustomOffset){
+				Xoffset = Position3Offset - CustomOffset;
+			}
+
 			if(Xoffset == Position1Offset - CustomOffset){
 				Xoffset = Position2Offset - CustomOffset;
 			}
 			
-		
+
 			
 		}
 	}

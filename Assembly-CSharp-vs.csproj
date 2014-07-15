@@ -46,12 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlaneScript.cs" />
      <Compile Include="Assets\script\BackgroundMovement.cs" />
      <Compile Include="Assets\script\CameraScript.cs" />
      <Compile Include="Assets\script\Killed.cs" />
      <Compile Include="Assets\script\ObjectDefaultScript.cs" />
      <Compile Include="Assets\script\PatientScript.cs" />
+     <Compile Include="Assets\script\PlaneScript.cs" />
      <Compile Include="Assets\script\PlayerScript.cs" />
      <Compile Include="Assets\script\Security.cs" />
      <Compile Include="Assets\script\backbuttonscript.cs" />
