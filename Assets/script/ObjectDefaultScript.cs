@@ -14,11 +14,6 @@ public class ObjectDefaultScript : MonoBehaviour {
 		//Random.seed = (int)Time.time;
 		SpawnCheck ();
 
-		this.gameObject.transform.position = newPos;
-		if (this.gameObject.GetComponent<PatientScript> () != null) {
-			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
-		}
-
 		if (this.GetComponent<Animator> () != null) {
 			this.GetComponent<Animator> ().speed = 0.3f;
 		}
@@ -50,10 +45,7 @@ public class ObjectDefaultScript : MonoBehaviour {
 		}
 
 		SpawnCheck ();
-		this.gameObject.transform.position = newPos;
-		if (this.gameObject.GetComponent<PatientScript> () != null) {
-			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
-		}
+
 	}
 
 	bool my2Dintersect(Bounds boundsA, Bounds boundsB ){
@@ -76,6 +68,10 @@ public class ObjectDefaultScript : MonoBehaviour {
 			topRight= new Vector2(newPos.x+ halfWidth, newPos.y-halfHeight);
 		}
 
+		this.gameObject.transform.position = newPos;
+		if (this.gameObject.GetComponent<PatientScript> () != null) {
+			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
+		}
 
 		// if we're an object don't spawn on other objects
 
