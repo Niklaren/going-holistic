@@ -11,7 +11,7 @@ public class ObjectDefaultScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Random.seed = (int)Time.time;
+		Random.seed = (int)System.DateTime.Now.Second;
 		SpawnCheck ();
 
 		if (this.GetComponent<Animator> () != null) {
