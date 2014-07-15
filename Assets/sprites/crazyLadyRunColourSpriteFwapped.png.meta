@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: 2b89a72b7758fd648bafd049dadede9c
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: crazyLadyRunColourSpriteFwapped_0
+    21300002: crazyLadyRunColourSpriteFwapped_1
+    21300004: crazyLadyRunColourSpriteFwapped_2
+    21300006: crazyLadyRunColourSpriteFwapped_3
+    21300008: crazyLadyRunColourSpriteFwapped_4
+    21300010: crazyLadyRunColourSpriteFwapped_5
+    21300012: crazyLadyRunColourSpriteFwapped_6
+    21300014: crazyLadyRunColourSpriteFwapped_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

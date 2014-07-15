@@ -57,6 +57,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void Start () {
+
 		playerScore = 0.0f;
 
 		this.GetComponent<Animator> ().speed = playerSpeed / 0.2f;

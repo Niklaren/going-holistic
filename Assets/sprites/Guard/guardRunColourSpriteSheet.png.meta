@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: fe52542d17a5bb6408b85ab6394acd39
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: guardRunColourSpriteSheet_0
+    21300002: guardRunColourSpriteSheet_1
+    21300004: guardRunColourSpriteSheet_2
+    21300006: guardRunColourSpriteSheet_3
+    21300008: guardRunColourSpriteSheet_4
+    21300010: guardRunColourSpriteSheet_5
+    21300012: guardRunColourSpriteSheet_6
+    21300014: guardRunColourSpriteSheet_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

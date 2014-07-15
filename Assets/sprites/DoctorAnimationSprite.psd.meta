@@ -1,6 +1,9 @@
 fileFormatVersion: 2
 guid: 253f802087687f845ba5cd0ae855f57f
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: DoctorAnimationSprite_0
+    21300002: DoctorAnimationSprite_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
