@@ -28,9 +28,8 @@ public class Security : MonoBehaviour {
 	void Update () {
 		if (this.GetComponent<Animator> () != null) {
 
-			this.GetComponent<Animator> ().speed = 5.0f;
+			this.GetComponent<Animator> ().speed = 1.8f;
 		} else {
-
 			Timer = true;
 		}
 		//Target location

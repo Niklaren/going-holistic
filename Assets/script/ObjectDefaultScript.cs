@@ -11,20 +11,9 @@ public class ObjectDefaultScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Random.seed = (int)Time.time;
-		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
-		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
-		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;
-		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (72.0f, 120.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
-		
-		Vector2 topLeft = new Vector2(newPos.x- halfWidth, newPos.y+halfHeight);
-		Vector2 topRight= new Vector2(newPos.x+ halfWidth , newPos.y-halfHeight);
-		
-		while (Physics2D.OverlapArea (topLeft, topRight)!=null) {
-			newPos.x = newPos.x + Random.Range (1.0f, 10.0f);
-			topLeft = new Vector2(newPos.x- halfWidth , newPos.y+halfHeight);
-			topRight= new Vector2(newPos.x+ halfWidth, newPos.y-halfHeight);
-		} 
+		//Random.seed = (int)Time.time;
+		SpawnCheck ();
+
 		this.gameObject.transform.position = newPos;
 		if (this.gameObject.GetComponent<PatientScript> () != null) {
 			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
@@ -60,23 +49,38 @@ public class ObjectDefaultScript : MonoBehaviour {
 			}
 		}
 
-		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
-		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
-		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;
-		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (72.0f, 120.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
-
-		Vector2 topLeft = new Vector2(newPos.x- halfWidth, newPos.y+halfHeight);
-		Vector2 topRight= new Vector2(newPos.x+ halfWidth , newPos.y-halfHeight);
-
-		while (Physics2D.OverlapArea (topLeft, topRight)!=null) {
-			newPos.x = newPos.x + Random.Range (1.0f, 10.0f);
-			topLeft = new Vector2(newPos.x- halfWidth , newPos.y+halfHeight);
-			topRight= new Vector2(newPos.x+ halfWidth, newPos.y-halfHeight);
-		} 
+		SpawnCheck ();
 		this.gameObject.transform.position = newPos;
 		if (this.gameObject.GetComponent<PatientScript> () != null) {
 			this.gameObject.GetComponent<PatientScript> ().CorruptPatient ();
 		}
+	}
+
+	bool my2Dintersect(Bounds boundsA, Bounds boundsB ){
+		return boundsA.min.x <= boundsB.max.x && boundsA.max.x >= boundsB.min.x && boundsA.min.y <= boundsB.max.y && boundsA.max.y >= boundsB.min.y;
+	}
+
+	void SpawnCheck(){
+
+		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
+		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;
+		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (0.0f, 20.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
+		
+		Vector2 topLeft = new Vector2(newPos.x- halfWidth, newPos.y+halfHeight);
+		Vector2 topRight= new Vector2(newPos.x+ halfWidth , newPos.y-halfHeight);
+		
+		while (Physics2D.OverlapArea (topLeft, topRight)!=null) {
+			newPos.x = newPos.x + Random.Range (1.0f, 10.0f);
+			topLeft = new Vector2(newPos.x- halfWidth , newPos.y+halfHeight);
+			topRight= new Vector2(newPos.x+ halfWidth, newPos.y-halfHeight);
+		}
+
+
+		// if we're an object don't spawn on other objects
+
+		// if we're not an object don't spawn on anything,
+		// unless it's an object then it's okay
 	}
 
 	void OnTriggerEnter2D  (Collider2D other ) {
