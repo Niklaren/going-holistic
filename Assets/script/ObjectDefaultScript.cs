@@ -57,7 +57,7 @@ public class ObjectDefaultScript : MonoBehaviour {
 		Vector3 curPos = new Vector3 (this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
 		float halfWidth = this.gameObject.transform.renderer.bounds.extents.x;
 		float halfHeight = this.gameObject.transform.renderer.bounds.extents.y;
-		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (0.0f, 20.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
+		Vector3 newPos = new Vector3 (curPos.x  + Random.Range (25.0f, 50.0f), curPos.y, curPos.z);//this.gameObject.transform.position.y
 		
 		Vector2 topLeft = new Vector2(newPos.x- halfWidth, newPos.y+halfHeight);
 		Vector2 topRight= new Vector2(newPos.x+ halfWidth , newPos.y-halfHeight);
