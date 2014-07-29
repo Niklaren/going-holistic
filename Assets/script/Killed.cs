@@ -10,7 +10,6 @@ public class Killed : MonoBehaviour {
 	void Start () {
 
 		ticker = UnityEngine.Time.realtimeSinceStartup;
-		print (ticker);
 	}
 	
 	// Update is called once per frame

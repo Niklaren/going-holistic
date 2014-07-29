@@ -30,8 +30,6 @@ public class ObjectDefaultScript : MonoBehaviour {
 	}
 
 	void OnBecameInvisible() {
-		print ("NPC Out of view");
-
 		SetInteractable ();
 
 		if (this.tag == "POSTER"){
@@ -80,7 +78,6 @@ public class ObjectDefaultScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D  (Collider2D other ) {
-		print ("triggers");
 		if (other.tag == "SLOW" || other.tag == "POINT" || other.tag == "DOOR" || other.tag == "POSTER") {
 			this.gameObject.transform.Translate(new Vector3( Screen.width/100.0f+Random.Range(30.0f,50.0f) ,0 , 0));
 		}

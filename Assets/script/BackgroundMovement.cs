@@ -24,11 +24,11 @@ public class BackgroundMovement : MonoBehaviour {
 	}
 
 	void OnBecameVisible(){
-		print ("background became vis");
+		//print ("background became vis");
 		}
 
 	void OnBecameInvisible() {
-		print ("background became invis");
+		//print ("background became invis");
 		this.gameObject.transform.Translate(new Vector3(this.gameObject.renderer.bounds.size.x * 3.0f , 0 ,0));
 	}
 }
